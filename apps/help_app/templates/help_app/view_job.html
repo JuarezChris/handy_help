@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>View Job</title>
+</head>
+<body>
+        <a href="/log_out">Log out</a>
+        <a href="/handy_help">Go Back</a><br>
+    <div id='view_job'>
+    {{job.title}}
+    {{job.description}}
+    {{job.location}}
+    <h2>Posted by:{{job.user.first_name}}</h2>
+    <h2>Posted on:{{ job.created_at}}</h2>
+   </div>
+</body>
+</html>

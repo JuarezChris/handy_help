@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'help_app/css/helper.css' %}">
+    <title>Add Job</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <h1>ADD JOB!</h1>
+    <a href="/log_out">Log out</a>
+    <a href="/handy_help">Go Back</a><br>
+
+    <div id='add_job'>
+    <form action='/add' method='post'>
+        {% csrf_token %}
+        <div class="form-group">
+        <label for="exampleInputPassword1">Title</label>
+            <input type="title" class="form-control" name="title" placeholder="title">
+        </div>
+        <div class="form-group">
+        <label for="exampleInputPassword1">Description</label>
+            <input type="description" class="form-control" name="description" placeholder="description">
+        </div>
+        <div class="form-group">
+                <label for="exampleInputPassword1">Location</label>
+                    <input type="location" class="form-control" name="location" placeholder="location">
+                </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    </div>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
